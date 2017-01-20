@@ -7,13 +7,14 @@ using UnityEngine;
 public class ObtainAmplitudesScript : MonoBehaviour
 {
     private float[] AudioData;
-    int renderSampleRate = 10;
 
+    public int RenderSampleRate { get; private set; }
     public AudioClip Clip { get; private set; }
 
 	// Use this for initialization
 	void Awake ()
     {
+        RenderSampleRate = 20;
         Clip = gameObject.GetComponentInChildren<AudioSource>().clip;
 
         AudioData = new float[Clip.samples * Clip.channels];
@@ -22,8 +23,8 @@ public class ObtainAmplitudesScript : MonoBehaviour
 
     public float[] GetRenderData()
     {
-        int samples_per_100ms = Clip.frequency / renderSampleRate;
-        float[] data = new float[(int)(Clip.length * renderSampleRate * Clip.channels)];
+        int samples_per_100ms = Clip.frequency / RenderSampleRate;
+        float[] data = new float[(int)(Clip.length * RenderSampleRate * Clip.channels)];
 
         for (int render_sample = 0; render_sample < data.Length; ++render_sample)
         {
