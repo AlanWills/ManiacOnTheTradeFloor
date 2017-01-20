@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PriceChangingScript : MonoBehaviour {
+public class AudioVisualiserScript : MonoBehaviour {
 
     private LineRenderer priceLine;
-    private ObtainAmplitudesScript amplitudes;
+    private AudioInfoScript amplitudes;
 
     private Vector3[] positionBuffer;
     private float[] amplitudeBuffer;
@@ -18,7 +18,7 @@ public class PriceChangingScript : MonoBehaviour {
         Material whiteDiffuseMat = new Material(Shader.Find("Unlit/Texture"));
         priceLine.material = whiteDiffuseMat;
 
-        amplitudes = GameObject.Find("AudioManager").GetComponent<ObtainAmplitudesScript>();
+        amplitudes = GameObject.Find("AudioManager").GetComponent<AudioInfoScript>();
 
         amplitudeBuffer = amplitudes.GetRenderData();
         positionBuffer = new Vector3[amplitudeBuffer.Length];
