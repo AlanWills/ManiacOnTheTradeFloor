@@ -19,7 +19,6 @@ public class LevelResultsUIScript : MonoBehaviour
         if (player1Score == player2Score)
         {
             resultUI.GetComponentInChildren<Text>().text = "DRAW!!";
-            GameObject.Find("Cup").SetActive(false);
         }
         else
         {

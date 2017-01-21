@@ -20,7 +20,8 @@ public class FinishLevelScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		if (!audioSource.isPlaying)
+        // Make sure we have had at least enough time to play the song
+		if (!audioSource.isPlaying && Time.timeSinceLevelLoad > audioSource.clip.length)
         {
             GetComponentInParent<TransitionToSceneScript>().ForceTransition();
 
