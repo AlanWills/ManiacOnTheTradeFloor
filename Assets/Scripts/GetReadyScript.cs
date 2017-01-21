@@ -1,20 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GetReadyScript : MonoBehaviour
 {
     public List<Sprite> textures;
     public float delay = 1.0f;
 
-    private SpriteRenderer spriteRenderer;
+    private Image currentImage;
     private float currentTimer = 0;
     private int currentIndex = 0;
 
     // Use this for initialization
     void Start()
     {
-        spriteRenderer = GetComponentInParent<SpriteRenderer>();
+        currentImage = GetComponentInParent<Image>();
     }
 
     // Update is called once per frame
@@ -26,7 +27,8 @@ public class GetReadyScript : MonoBehaviour
         {
             if (currentIndex < textures.Count)
             {
-                spriteRenderer.sprite = textures[currentIndex];
+                currentImage.sprite = textures[currentIndex];
+                currentImage.SetNativeSize();
                 currentIndex++;
                 currentTimer = 0;
             }

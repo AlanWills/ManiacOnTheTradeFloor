@@ -13,8 +13,8 @@ public class PlayerUIUpdateScript : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        currentMoneyText = transform.Find("Text/MoneyText/CurrentMoneyText").gameObject.GetComponent<Text>();
-        currentSharesText = transform.FindChild("Text/SharesText/CurrentSharesText").gameObject.GetComponent<Text>();
+        currentMoneyText = transform.Find("TextContainer/CurrentMoneyText").gameObject.GetComponent<Text>();
+        currentSharesText = transform.FindChild("TextContainer/CurrentSharesText").gameObject.GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
