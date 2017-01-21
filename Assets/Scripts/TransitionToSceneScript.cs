@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class TransitionToSceneScript : MonoBehaviour
 {
     public SceneAsset SceneToTransitionTo;
+
+    // Use negative time for indefinite wait
     public float TimeToWait;
 
 	// Use this for initialization
@@ -18,9 +20,14 @@ public class TransitionToSceneScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		if (Time.timeSinceLevelLoad > TimeToWait)
+		if (TimeToWait >= 0 && Time.timeSinceLevelLoad > TimeToWait)
         {
-            SceneManager.LoadScene(SceneToTransitionTo.name);
+            ForceTransition();
         }
 	}
+
+    public void ForceTransition()
+    {
+        SceneManager.LoadScene(SceneToTransitionTo.name);
+    }
 }
