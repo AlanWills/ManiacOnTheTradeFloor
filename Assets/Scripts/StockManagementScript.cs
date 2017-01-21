@@ -4,51 +4,46 @@ using UnityEngine;
 
 public class StockManagementScript : MonoBehaviour
 {
-    private const KeyCode buyKey = KeyCode.B;
-    private const KeyCode sellKey = KeyCode.S; 
     private const float startingMoney = 1000;
+    private AudioWaveScript wave;
 
     public float Money { get; private set; }
     public int Shares { get; private set; }
 
-    public float CurrentSharePrice
+    private float CurrentSharePrice
     {
         get
         {
-            // TODO
-            return 1;
+            return wave.GetCurrentAmplitudeValue();
         }
     }
-
 
 	// Use this for initialization
 	void Start ()
     {
         Money = startingMoney;
+        wave = GameObject.Find("AudioWave").GetComponent<AudioWaveScript>();
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    public void BuyShare()
     {
-		if (Input.GetKeyDown(buyKey) || Input.GetKey(buyKey))
+        // If the user presses or is holding down the buy key, they attempt to buy a share
+        if (Money >= CurrentSharePrice)
         {
-            // If the user presses or is holding down the buy key, they attempt to buy a share
-            if (Money >= CurrentSharePrice)
-            {
-                // The user has enough money to buy a share
-                Shares++;
-                Money -= CurrentSharePrice;
-            }
+            // The user has enough money to buy a share
+            Shares++;
+            Money -= CurrentSharePrice;
         }
-        else if (Input.GetKeyDown(sellKey) || Input.GetKey(sellKey))
+    }
+
+    public void SellShare()
+    {
+        // If the user presses or is holding down the sell key, they attempt to sell a share
+        if (Shares > 0)
         {
-            // If the user presses or is holding down the sell key, they attempt to sell a share
-            if (Shares > 0)
-            {
-                // The user has shares to sell, so we sell one for the current price
-                Shares--;
-                Money += CurrentSharePrice;
-            }
+            // The user has shares to sell, so we sell one for the current price
+            Shares--;
+            Money += CurrentSharePrice;
         }
-	}
+    }
 }
