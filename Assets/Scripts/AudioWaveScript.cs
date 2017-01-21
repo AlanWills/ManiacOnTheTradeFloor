@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -40,9 +41,9 @@ public class AudioWaveScript : MonoBehaviour {
         transform.Translate(new Vector3(-Speed * Time.deltaTime, 0, 0));
     }
 
-    public float GetCurrentAmplitudeValue()
+    public float GetCurrentAmplitudeMagnitude()
     {
         int sampleTime = (int)(audioSource.clip.frequency * audioSource.time);
-        return audioData[sampleTime];
+        return Math.Abs(audioData[sampleTime]);
     }
 }

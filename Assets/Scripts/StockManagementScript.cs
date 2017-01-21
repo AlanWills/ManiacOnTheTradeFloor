@@ -14,7 +14,7 @@ public class StockManagementScript : MonoBehaviour
     {
         get
         {
-            return wave.GetCurrentAmplitudeValue();
+            return wave.GetCurrentAmplitudeMagnitude() * 1000;
         }
     }
 

@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AudioWaveScript.cs" />
+    <Compile Include="Assets\Scripts\BlockingAudioScript.cs" />
     <Compile Include="Assets\Scripts\GetReadyScript.cs" />
     <Compile Include="Assets\Scripts\PlayerUIUpdateScript.cs" />
     <Compile Include="Assets\Scripts\SpeedCorrectionScript.cs" />
