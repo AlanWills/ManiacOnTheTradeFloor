@@ -20,13 +20,11 @@ public class StockManagementScript : MonoBehaviour
         }
     }
 
-    private AudioInfoScript audioInfo;
 
 	// Use this for initialization
 	void Start ()
     {
         Money = startingMoney;
-        audioInfo = GetComponentInParent<AudioInfoScript>();
 	}
 	
 	// Update is called once per frame
