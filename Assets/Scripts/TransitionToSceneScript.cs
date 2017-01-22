@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class TransitionToSceneScript : MonoBehaviour
 {
-    public SceneAsset SceneToTransitionTo;
+    public string SceneToTransitionTo;
 
     // Use negative time for indefinite wait
     public float TimeToWait = -1;
@@ -37,6 +36,6 @@ public class TransitionToSceneScript : MonoBehaviour
 
     public void ForceTransition()
     {
-        SceneManager.LoadScene(SceneToTransitionTo.name);
+        SceneManager.LoadScene(SceneToTransitionTo);
     }
 }
