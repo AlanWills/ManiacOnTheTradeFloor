@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(TransitionToSceneScript))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class FinishLevelScript : MonoBehaviour
 {
     public static float Player1Money = 0;
@@ -14,19 +14,17 @@ public class FinishLevelScript : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        audioSource = GetComponentInParent<AudioSource>();
+        
 	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        // Make sure we have had at least enough time to play the song
-		if (!audioSource.isPlaying && Time.timeSinceLevelLoad > audioSource.clip.length)
-        {
-            GetComponentInParent<TransitionToSceneScript>().ForceTransition();
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == "Marker")
+        {
             Player1Money = GameObject.Find("Players/Player1").GetComponent<StockManagementScript>().Money;
             Player2Money = GameObject.Find("Players/Player2").GetComponent<StockManagementScript>().Money;
+
+            GetComponentInParent<TransitionToSceneScript>().ForceTransition();
         }
-	}
+    }
 }

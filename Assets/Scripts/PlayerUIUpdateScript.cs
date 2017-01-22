@@ -20,7 +20,7 @@ public class PlayerUIUpdateScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        currentMoneyText.text = StockManagementScript.Money.ToString();
+        currentMoneyText.text = ((int)StockManagementScript.Money).ToString();
         currentSharesText.text = StockManagementScript.Shares.ToString();
 	}
 }
