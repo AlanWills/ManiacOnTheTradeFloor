@@ -84,7 +84,9 @@
     <Compile Include="Assets\Scripts\FinishLevelScript.cs" />
     <Compile Include="Assets\Scripts\GetReadyScript.cs" />
     <Compile Include="Assets\Scripts\LevelResultsUIScript.cs" />
+    <Compile Include="Assets\Scripts\LoadingScript.cs" />
     <Compile Include="Assets\Scripts\PlayerUIUpdateScript.cs" />
+    <Compile Include="Assets\Scripts\SetLoadingSceneScript.cs" />
     <Compile Include="Assets\Scripts\SpeedCorrectionScript.cs" />
     <Compile Include="Assets\Scripts\StockManagementScript.cs" />
     <Compile Include="Assets\Scripts\TransitionToSceneScript.cs" />
