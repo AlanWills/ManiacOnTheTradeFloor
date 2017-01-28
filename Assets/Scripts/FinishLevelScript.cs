@@ -9,8 +9,6 @@ public class FinishLevelScript : MonoBehaviour
     public static float Player1Money = 0;
     public static float Player2Money = 0;
 
-    private AudioSource audioSource;
-
 	// Use this for initialization
 	void Start ()
     {
